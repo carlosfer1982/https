@@ -44,6 +44,11 @@ type nul > .gitignore
 type nul > src\server.js
 
 
+git init
+git add .
+git commit -m "inicialização de pasta de projeto"
+git branch -M main
+git remote add origin https://github.com
 
 
 
