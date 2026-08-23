@@ -1,0 +1,21 @@
+# Dependências do Node (Muito pesadas)
+node_modules/
+jspm_packages/
+
+# Arquivos de Configuração Secreta (Segurança)
+.env
+.env.production
+*.pem
+*.key
+*.cert
+
+# Logs do sistema
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Pastas de build ou IDEs
+.vscode/
+.idea/
+dist/
+build/

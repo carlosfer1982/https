@@ -1,0 +1,49 @@
+npm init -y - Inicializa um projeto nodejs
+
+npm install express
+
+npm install dotenv
+
+npm install -D nodeamon
+
+npm install cors
+
+npm install mongoose
+
+npm install helmet
+
+npm install bcrypt
+
+npm install express-session
+
+npm install mqtt
+
+npm list - para listar todos os módulos
+
+npx express-generator . - Cria a estrutura de pastas e arquivos.
+
+
+
+Organizando as pastas para uma estrutura moderna:
+
+mkdir src\config\certs src\controllers src\middlewares src\models src\routes
+
+move app.js src\
+move routes\* src\routes\
+
+
+rmdir /s /q routes
+rmdir /s /q views
+rmdir /s /q bin
+
+
+Criar arquivos:
+type nul > .env
+type nul > .env.example
+type nul > .gitignore
+type nul > src\server.js
+
+
+
+
+
