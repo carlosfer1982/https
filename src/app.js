@@ -4,28 +4,32 @@ const cors = require('cors');
 const helmet = require('helmet');
 const session = require('express-session');
 
-const productRoutes = require('./routes/productRoutes');
-
+// 1. Inicializa o aplicativo Express primeiro
 const app = express();
 
-// Middlewares de Segurança e Utilitários
+// 2. Importa as rotas
+const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
+
+// 3. Middlewares Globais de Segurança e Parsing
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Configuração de Sessão (opcional dependendo de como usará a autenticação)
+// 4. Configuração da Sessão (deve vir ANTES das rotas)
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret_key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false } // Altere para true em produção com HTTPS
+  cookie: { secure: false } // Mude para true se utilizar HTTPS
 }));
 
-// Rotas da API
+// 5. Definição das Rotas da API
+app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 
-// Rota raiz de verificação
+// Rota raiz de teste
 app.get('/', (req, res) => {
   res.send('API CRUD Node.js ativa!');
 });
